@@ -61,4 +61,38 @@ class CantUpToDayAfter(BaseModel):
     def __unicode__(self):
         return self.location
 
+
+class CantDownToDay(BaseModel):
+# 当日跌停以及跌停过的票
+    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
+    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+
+    class Meta:
+        verbose_name = 'KnSec_times_top10'
+        verbose_name_plural = 'KnSec_times_top10'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.location
+
+
+class CantDownToDayAfter(BaseModel):
+# 当日跌停的票、盘后统计的
+    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
+    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+
+    class Meta:
+        verbose_name = 'KnSec_times_top10'
+        verbose_name_plural = 'KnSec_times_top10'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.location
+
+
+class Topical(BaseModel):
+    #主题
+    location = models.CharField(max_length=45, verbose_name=u'地理位置', null=True, blank=True)
+
+
 admin.site.register(URL)
