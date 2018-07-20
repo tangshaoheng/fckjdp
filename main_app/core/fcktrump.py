@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
 from utils.mail import mail_sender
-from main.fun import updown
-from main.fun import cant_up_item
-from main.fun import warn,suggest,global_index,pagination
+from func.func import updown
+from func.func import cant_up_item
+from func.func import warn,suggest,global_index,pagination
 from utils.logger import logger
 import datetime
 

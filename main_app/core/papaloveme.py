@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
 from utils.mail import mail_sender
-from main.fun import post,get
+from func.func import post,get
 from utils.logger import logger
 from bs4 import BeautifulSoup
-from setting.setting import longhu,url_team,url_power,url_actvite,level
+from conf.setting import longhu,url_team,url_power,url_actvite,level
 log = logger('xxxx')
 
 if __name__ == '__main__':

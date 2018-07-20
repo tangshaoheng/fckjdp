@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
 from utils.mail import mail_sender
-from main.fun import pagination,capital_flow,buyday
+from func.func import pagination,capital_flow,buyday
 from utils.logger import logger
 import datetime
 import time

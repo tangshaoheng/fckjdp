@@ -2,7 +2,7 @@
 from __future__ import division
 import tushare as ts
 import requests
-from fckgdp.settings import tonghuashun_api,global_api,tonghuashun_post_search_api
+from conf.settings import tonghuashun_api,global_api,tonghuashun_post_search_api
 import datetime
 import time
 
