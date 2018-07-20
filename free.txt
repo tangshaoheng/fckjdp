@@ -1,0 +1,5 @@
+tushare==1.1.7
+Django==1.11.7
+django-simple-serializer==2.0.7
+itsdangerous==0.24
+requests==2.18.4
