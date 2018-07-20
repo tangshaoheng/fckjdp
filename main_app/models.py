@@ -35,7 +35,7 @@ class TodayReport(BaseModel):
 
 
 class CantUpToDay(BaseModel):
-# 当日
+# 当日涨停以及涨停过的票
     location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
     attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
 
@@ -48,5 +48,17 @@ class CantUpToDay(BaseModel):
         return self.location
 
 
+class CantUpToDayAfter(BaseModel):
+# 当日涨停的票、盘后统计的
+    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
+    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+
+    class Meta:
+        verbose_name = 'KnSec_times_top10'
+        verbose_name_plural = 'KnSec_times_top10'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.location
 
 admin.site.register(URL)
