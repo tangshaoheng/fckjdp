@@ -8,6 +8,10 @@ now = now()
 
 class TodayReport(BaseModel):
 
+    '''
+    大盘总参
+    '''
+
     sz1A0001 = models.CharField(max_length=10, verbose_name=u'上证指',null=True,blank=True)
     zdf_1a0001 = models.CharField(max_length=10, verbose_name=u'上证指涨跌幅',null=True,blank=True)
     sh399001 = models.CharField(max_length=10, verbose_name=u'深圳指',null=True,blank=True)
@@ -27,7 +31,7 @@ class TodayReport(BaseModel):
 
     def save(self, * args, ** kwargs):
         if len(self.__class__.objects.filter(create_time__year = now.year, create_time__month=now.month, create_time__day=now.day))>=1:
-            raise Exception,u'多次插入'
+            raise Exception(u'多次插入')
         super(self.__class__, self).save(*args, ** kwargs)
 
     def __unicode__(self):
@@ -35,7 +39,10 @@ class TodayReport(BaseModel):
 
 
 class CantUpToDay(BaseModel):
-# 当日涨停以及涨停过的票
+    '''
+    当日涨停以及涨停过的票
+    '''
+
     location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
     attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
 
@@ -49,7 +56,10 @@ class CantUpToDay(BaseModel):
 
 
 class CantUpToDayAfter(BaseModel):
-# 当日涨停的票、盘后统计的
+    '''
+    当日涨停的票、盘后统计的
+    '''
+
     location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
     attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
 
@@ -63,7 +73,10 @@ class CantUpToDayAfter(BaseModel):
 
 
 class CantDownToDay(BaseModel):
-# 当日跌停以及跌停过的票
+    '''
+    当日跌停以及跌停过的票
+    '''
+
     location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
     attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
 
@@ -77,7 +90,10 @@ class CantDownToDay(BaseModel):
 
 
 class CantDownToDayAfter(BaseModel):
-# 当日跌停的票、盘后统计的
+    '''
+    当日跌停的票、盘后统计的
+    '''
+
     location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
     attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
 
@@ -91,8 +107,10 @@ class CantDownToDayAfter(BaseModel):
 
 
 class Topical(BaseModel):
-    #主题
+    '''
+    主题
+    '''
     location = models.CharField(max_length=45, verbose_name=u'地理位置', null=True, blank=True)
 
 
-admin.site.register(URL)
+admin.site.register(TodayReport)
