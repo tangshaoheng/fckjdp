@@ -61,8 +61,8 @@ class CantUpToDayAfter(BaseModel):
     当日涨停的票、盘后统计的
     """
 
-    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
-    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
         verbose_name = 'CantUpToDayAfter'
@@ -78,8 +78,8 @@ class CantDownToDay(BaseModel):
     当日跌停以及跌停过的票
     """
 
-    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
-    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
         verbose_name = 'CantDownToDay'
@@ -95,8 +95,8 @@ class CantDownToDayAfter(BaseModel):
     当日跌停的票、盘后统计的
     """
 
-    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
-    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
         verbose_name = 'CantDownToDayAfter'
@@ -128,8 +128,8 @@ class CapitalFly1000(BaseModel):
     资金流大于1000w
     """
 
-    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
-    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
         verbose_name = 'CapitalFly1000'
