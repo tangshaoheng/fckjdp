@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from utils.mail import mail_sender
-from func.func import post,get
-from utils.logger import logger
+from main_app.core.utils.mail import mail_sender
+from main_app.core.func.func import post,get
+from main_app.core.utils.logger import logger
 from bs4 import BeautifulSoup
-from conf.setting import longhu,url_team,url_power,url_actvite,level
-log = logger('xxxx')
+from conf.settings import longhu,url_team,url_power,url_actvite,level
+
+log = logger('log_instance')
 
 if __name__ == '__main__':
   #[u'知名游资', u'一线游资', u'毒瘤', u'跟风高手', u'新股专家']
@@ -15,6 +16,7 @@ if __name__ == '__main__':
     level3 = []
     level4 = []
     ditc_active = {}
+
     key = 1
     for x in range(1,40):
         target = url_actvite.format(pages =x)
@@ -25,10 +27,9 @@ if __name__ == '__main__':
             try:
                 ditc_active[key] = [items.find('label').get_text(),items.a.get('title'),items.a.get('href')]
                 key+=1
-            except Exception,e:
-                print str(e)
+            except Exception as e:
+                print(e)
                 pass
-    print ditc_active
     key_power = 1
     ditc_power = {}
     for x in range(1,40):
@@ -40,7 +41,7 @@ if __name__ == '__main__':
             try:
                 ditc_power[key_power] = [items.find('label').get_text(),items.a.get('title'),items.a.get('href')]
                 key_power+=1
-            except Exception,e:
+            except Exception as e:
                 pass
 
     ditc_team = {}
@@ -54,9 +55,9 @@ if __name__ == '__main__':
             try:
                 ditc_team[key_team] = [items.find('label').get_text(),items.a.get('title'),items.a.get('href')]
                 key_team+=1
-            except Exception,e:
+            except Exception as e:
                 pass
-    print '--'
+
     for items in ditc_team.values():
         if items[0] == level[0]:
             level0.append(items[1])
@@ -91,24 +92,24 @@ if __name__ == '__main__':
             level3.append(items[1])
         if items[0] == level[4]:
             level4.append(items[1])
-    print '--'
+    print('--')
 
-    print u'知名游资'
+    print(u'知名游资')
     for items in set(level0):
-        print items
+        print(items)
 
-    print u'一线游资'
+    print(u'一线游资')
     for items in set(level1):
-        print items
+        print(items)
 
-    print u'毒瘤'
+    print(u'毒瘤')
     for items in set(level2):
-        print items
+        print(items)
 
-    print u'跟风高手'
+    print(u'跟风高手')
     for items in set(level3):
-        print items
+        print(items)
 
-    print u'新股专家'
+    print(u'新股专家')
     for items in set(level4):
-        print items
+        print(items)
