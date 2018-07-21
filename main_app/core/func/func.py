@@ -166,6 +166,7 @@ def cant_down_item():
             }
         response = post(tonghuashun_post_search_api,data=data).json()
         result= response.get('data').get('wencai_data').get('result').get('result')
+        print(result)
     except Exception:
         return False
     return cant_down
@@ -196,6 +197,7 @@ def cant_up_item():
 
 
 def buyday():
+
     '''
     判断是否是交易时间
     :return:
@@ -221,11 +223,13 @@ def buyday():
 
 
 def warn(num):
+
     '''
     建议
     :param r:
     :return:
     '''
+
     u = u''
     if num < 2.5:
         u = u"大盘风险极大，请勿参与"
@@ -240,17 +244,20 @@ def warn(num):
     return  u
 
 def suggest(num):
+
     '''
     涨跌比
     :param r:
     :return:
     '''
+
     if num >=1:
         return u'涨跌比：%s 涨跌比大于1，可以开仓' %num
     else:
         return u'涨跌比：%s 建议空仓' %num
 
+
 if __name__ == '__main__':
-    updown()
+    cant_down_item()
 
 

@@ -39,78 +39,126 @@ class TodayReport(BaseModel):
 
 
 class CantUpToDay(BaseModel):
+
     '''
     当日涨停以及涨停过的票
     '''
 
-    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
-    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
-        verbose_name = 'KnSec_times_top10'
-        verbose_name_plural = 'KnSec_times_top10'
+        verbose_name = 'CantUpToDay'
+        verbose_name_plural = 'CantUpToDay'
         ordering = ['-create_time']
 
     def __unicode__(self):
-        return self.location
+        return self.name
 
 
 class CantUpToDayAfter(BaseModel):
+
     '''
     当日涨停的票、盘后统计的
     '''
 
-    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
-    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
-        verbose_name = 'KnSec_times_top10'
-        verbose_name_plural = 'KnSec_times_top10'
+        verbose_name = 'CantUpToDayAfter'
+        verbose_name_plural = 'CantUpToDayAfter'
         ordering = ['-create_time']
 
     def __unicode__(self):
-        return self.location
+        return self.name
 
 
 class CantDownToDay(BaseModel):
+
     '''
     当日跌停以及跌停过的票
     '''
 
-    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
-    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
-        verbose_name = 'KnSec_times_top10'
-        verbose_name_plural = 'KnSec_times_top10'
+        verbose_name = 'CantDownToDay'
+        verbose_name_plural = 'CantDownToDay'
         ordering = ['-create_time']
 
     def __unicode__(self):
-        return self.location
+        return self.name
 
 
 class CantDownToDayAfter(BaseModel):
+
     '''
     当日跌停的票、盘后统计的
     '''
 
-    location = models.CharField(max_length=45, verbose_name=u'地理位置',null=True,blank=True)
-    attack_times = models.IntegerField(verbose_name=u'总攻击ip数',null=True,blank=True)
+    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
-        verbose_name = 'KnSec_times_top10'
-        verbose_name_plural = 'KnSec_times_top10'
+        verbose_name = 'CantDownToDayAfter'
+        verbose_name_plural = 'CantDownToDayAfter'
         ordering = ['-create_time']
 
     def __unicode__(self):
-        return self.location
+        return self.name
 
 
-class Topical(BaseModel):
+class Topic(BaseModel):
     '''
     主题
     '''
-    location = models.CharField(max_length=45, verbose_name=u'地理位置', null=True, blank=True)
+
+    topic= models.CharField(max_length=45, verbose_name=u'炒作主题', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Topic'
+        verbose_name_plural = 'Topic'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.topic
+
+
+class Capitalfly1000(BaseModel):
+
+    '''
+    资金流大于1000w
+    '''
+
+    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+
+    class Meta:
+        verbose_name = 'Capitalfly1000'
+        verbose_name_plural = 'Capitalfly1000'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.name
+
+
+class CapitalflyBig(BaseModel):
+    '''
+    资金流大于1亿
+    '''
+
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'CapitalflyBig'
+        verbose_name_plural = 'CapitalflyBig'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.name
 
 
 admin.site.register(TodayReport)
