@@ -3,19 +3,19 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 from itsdangerous import URLSafeTimedSerializer
-from setting import setting
+from conf import settings
 
 
 def create_confirmation_token(email):
-    serializer = URLSafeTimedSerializer(setting.SECRET_KEY)
-    return serializer.dumps(email, salt=setting.SECURITY_PASSWORD_SALT)
+    serializer = URLSafeTimedSerializer(settings.SECRET_KEY)
+    return serializer.dumps(email, salt=settings.SECURITY_PASSWORD_SALT)
 
 def confirm_token(token, expiration=3600):
-    serializer = URLSafeTimedSerializer(setting.SECRET_KEY)
+    serializer = URLSafeTimedSerializer(settings.SECRET_KEY)
     try:
         email = serializer.loads(
             token,
-            salt=setting.SECURITY_PASSWORD_SALT,
+            salt=settings.SECURITY_PASSWORD_SALT,
             max_age=expiration
         )
     except:
@@ -23,15 +23,15 @@ def confirm_token(token, expiration=3600):
     return email
 
 def mail_sender(subject, template):
-    receivers = setting.MAIL_RECEIVER
-    mail_host = setting.MAIL_SERVER
-    mail_user = setting.MAIL_USERNAME
-    mail_pass = setting.MAIL_PASSWORD
+    receivers = settings.MAIL_RECEIVER
+    mail_host = settings.MAIL_SERVER
+    mail_user = settings.MAIL_USERNAME
+    mail_pass = settings.MAIL_PASSWORD
     subject = subject
 
     msg = MIMEText(template, 'html', 'utf-8')
     msg['subject'] = Header(subject, 'utf-8')
-    msg['from'] = 'Sky ja<%s>' % setting.MAIL_DEFAULT_SENDER
+    msg['from'] = 'Sky ja<%s>' % settings.MAIL_DEFAULT_SENDER
     msg['To'] = ';'.join(map(lambda x: '<' + x + '>', receivers))
 
     s = smtplib.SMTP(timeout=5)

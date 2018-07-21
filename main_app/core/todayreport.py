@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from utils.mail import mail_sender
-from func.func import updown
-from func.func import cant_up_item
-from func.func import warn,suggest,global_index,pagination
-from utils.logger import logger
+from main_app.core.utils.mail import mail_sender
+from main_app.core.func.func import updown
+from main_app.core.func.func import cant_up_item
+from main_app.core.func.func import warn,suggest,global_index,pagination
+from main_app.core.utils.logger import logger
 import datetime
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-log = logger('xxxx')
+log = logger('log_instance')
 
 
 if __name__ == '__main__':
@@ -62,8 +59,8 @@ if __name__ == '__main__':
                             )
 
     try:
-        mail_sender(subject,send_string)
+        # mail_sender(subject,send_string)
         log.info(u'邮件发送成功')
 
-    except Exception, e:
+    except Exception as e:
         log.error(str(e))

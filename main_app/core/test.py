@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from utils.mail import mail_sender
-from func.func import pagination,capital_flow,buyday
-from utils.logger import logger
+from main_app.core.utils.mail import mail_sender
+from main_app.core.func.func import pagination,capital_flow,buyday
+from main_app.core.utils.logger import logger
 import datetime
 import time
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-log = logger('xxxx')
+log = logger('log_instance')
 
 
 if __name__ == '__main__':
     while 1:
         if buyday():
-            print '1'
+            print('1')
         else:
-            print '0'
+            print('0')
             time.sleep(2)
 

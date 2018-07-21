@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from utils.mail import mail_sender
-from func.func import pagination,capital_flow
-from utils.logger import logger
+
+from main_app.core.utils.mail import mail_sender
+from main_app.core.func.func import pagination,capital_flow
+from main_app.core.utils.logger import logger
 import datetime
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-log = logger('xxxx')
+
+log = logger('log_instance')
 
 if __name__ == '__main__':
     pagination()
@@ -82,5 +81,5 @@ if __name__ == '__main__':
         mail_sender(subject,send_string)
         log.info(u'邮件发送成功')
 
-    except Exception, e:
+    except Exception as e:
         log.error(str(e))

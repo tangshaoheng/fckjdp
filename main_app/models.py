@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from base.models import BaseModel
+from main_app.base.models import BaseModel
 from django.db import models
 from django.contrib import admin
 from django.utils.timezone import now
