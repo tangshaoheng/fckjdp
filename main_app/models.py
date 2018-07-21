@@ -157,4 +157,26 @@ class CapitalFlyBig(BaseModel):
         return self.name
 
 
+class SharesItem(BaseModel):
+    """
+    每日营业部排名
+    """
+
+    name = models.CharField(max_length=45, verbose_name=u'营业部名称', null=True, blank=True)
+    label = models.CharField(max_length=45, verbose_name=u'营业部label', null=True, blank=True)
+    sb_cnt = models.CharField(max_length=45, verbose_name=u'上榜次数', null=True, blank=True)
+    zj_sum = models.CharField(max_length=45, verbose_name=u'合计动用资金', null=True, blank=True)
+    nn_sb_cnt = models.CharField(max_length=45, verbose_name=u'年内上榜次数', null=True, blank=True)
+    nn_buy_shares_cnt = models.CharField(max_length=45, verbose_name=u'年内买入股票只数', null=True, blank=True)
+    nn_three_date_bab_success_rate = models.CharField(max_length=45, verbose_name=u'年内三日跟买成功率', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'yyb_ranking'
+        verbose_name_plural = 'yyb_ranking'
+        ordering = ['-create_time']
+
+    def __unicode__(self):
+        return self.name
+
+
 admin.site.register(TodayReport)

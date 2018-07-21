@@ -124,8 +124,6 @@ STATIC_URL = '/static/'
 # MAIL_RECEIVER = ['']
 
 
-
-
 SECURITY_PASSWORD_SALT = 'grEARsdKEdwa'
 RANDOM_SALT = 'awYw3jIEjeMv'
 
@@ -138,4 +136,4 @@ url_actvite = 'http://data.10jqka.com.cn/ifmarket/lhbyyb/type/1/tab/sbcs/field/s
 url_power = 'http://data.10jqka.com.cn/ifmarket/lhbyyb/type/1/tab/zjsl/field/zgczje/sort/desc/page/{pages}/'  # 资金实力最强
 url_team = 'http://data.10jqka.com.cn/ifmarket/lhbyyb/type/1/tab/btcz/field/xsjs/sort/desc/page/{pages}/'  # 抱团能力最强
 
-level = [u'知名游资',u'一线游资',u'毒瘤',u'跟风高手',u'新股专家']
+level = [u'知名游资', u'一线游资', u'毒瘤', u'跟风高手', u'新股专家']
