@@ -6,11 +6,11 @@ from django.contrib import admin
 from django.utils.timezone import now
 now = now()
 
-class TodayReport(BaseModel):
 
-    '''
-    大盘总参
-    '''
+class TodayReport(BaseModel):
+    """
+        大盘总参
+    """
 
     sz1A0001 = models.CharField(max_length=10, verbose_name=u'上证指',null=True,blank=True)
     zdf_1a0001 = models.CharField(max_length=10, verbose_name=u'上证指涨跌幅',null=True,blank=True)
@@ -39,12 +39,11 @@ class TodayReport(BaseModel):
 
 
 class CantUpToDay(BaseModel):
-
-    '''
+    """
     当日涨停以及涨停过的票
-    '''
+    """
 
-    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
@@ -57,12 +56,11 @@ class CantUpToDay(BaseModel):
 
 
 class CantUpToDayAfter(BaseModel):
-
-    '''
+    """
     当日涨停的票、盘后统计的
-    '''
+    """
 
-    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
@@ -75,12 +73,11 @@ class CantUpToDayAfter(BaseModel):
 
 
 class CantDownToDay(BaseModel):
-
-    '''
+    """
     当日跌停以及跌停过的票
-    '''
+    """
 
-    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
@@ -93,12 +90,11 @@ class CantDownToDay(BaseModel):
 
 
 class CantDownToDayAfter(BaseModel):
-
-    '''
+    """
     当日跌停的票、盘后统计的
-    '''
+    """
 
-    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
@@ -111,11 +107,11 @@ class CantDownToDayAfter(BaseModel):
 
 
 class Topic(BaseModel):
-    '''
+    """
     主题
-    '''
+    """
 
-    topic= models.CharField(max_length=45, verbose_name=u'炒作主题', null=True, blank=True)
+    topic = models.CharField(max_length=45, verbose_name=u'炒作主题', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Topic'
@@ -127,12 +123,11 @@ class Topic(BaseModel):
 
 
 class Capitalfly1000(BaseModel):
-
-    '''
+    """
     资金流大于1000w
-    '''
+    """
 
-    name  = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
@@ -145,9 +140,9 @@ class Capitalfly1000(BaseModel):
 
 
 class CapitalflyBig(BaseModel):
-    '''
+    """
     资金流大于1亿
-    '''
+    """
 
     name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
     code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)

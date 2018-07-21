@@ -10,12 +10,12 @@ s = requests.Session()
 # 开启一个session
 
 def get(url,data = None,header = None):
-    '''
+    """
     :param url: URL
     :param data: 参数
     :param header: 请求头
     :return: 未处理的response
-    '''
+    """
     params = data
     if not header:
         header = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.15 Safari/537.36'}
@@ -25,12 +25,12 @@ def get(url,data = None,header = None):
     return response
 
 def post(url,data = None,header = None):
-    '''
+    """
     :param url: URL
     :param data: 参数
     :param header: 请求头
     :return: 未处理的response
-    '''
+    """
 
     data = data
     if not header:
@@ -43,10 +43,10 @@ def post(url,data = None,header = None):
 
 def updown():
 
-    '''
+    """
     大盘总参：如果不是交易时间，则为前一个收盘数据，如果是交易时间，则为当下数据
     :return:
-    '''
+    """
 
     ratio = {}
     api = tonghuashun_api
@@ -81,10 +81,10 @@ def updown():
 
 def global_index():
 
-    '''
+    """
     大盘指数
     :return:
-    '''
+    """
 
     global_index = []
     try:
@@ -102,10 +102,10 @@ def global_index():
 
 def pagination(perpage=70):
 
-    '''
+    """
     :param perpage:  同花顺单页返回item个数
     :return:
-    '''
+    """
 
     try:
         header = {
@@ -127,12 +127,11 @@ def pagination(perpage=70):
     return True
 
 
-
 def capital_flow():
-    '''
+    """
     资金流
     :return:
-    '''
+    """
     capital = []
     try:
         data = {
@@ -150,10 +149,10 @@ def capital_flow():
 
 def cant_down_item():
 
-    '''
+    """
     当日跌停的票
     :return:
-    '''
+    """
 
     cant_down = {}
     try:
@@ -173,10 +172,10 @@ def cant_down_item():
 
 
 def cant_up_item():
-    '''
+    """
     当日涨停的票
     :return:
-    '''
+    """
 
     up_list = []
     try:
@@ -198,10 +197,10 @@ def cant_up_item():
 
 def buyday():
 
-    '''
+    """
     判断是否是交易时间
     :return:
-    '''
+    """
 
     worktime=['09:25:00','11:30:00','13:00:00','15:00:00']
     dayofweek = datetime.datetime.now().weekday()
@@ -224,11 +223,11 @@ def buyday():
 
 def warn(num):
 
-    '''
+    """
     建议
     :param r:
     :return:
-    '''
+    """
 
     u = u''
     if num < 2.5:
@@ -245,11 +244,11 @@ def warn(num):
 
 def suggest(num):
 
-    '''
+    """
     涨跌比
     :param r:
     :return:
-    '''
+    """
 
     if num >=1:
         return u'涨跌比：%s 涨跌比大于1，可以开仓' %num
