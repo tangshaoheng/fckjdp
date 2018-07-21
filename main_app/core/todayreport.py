@@ -35,7 +35,7 @@ if __name__ == '__main__':
                   '涨跌比:{ratio},<br>' \
                   '涨停数：{cant_up}，<br>' \
                   '跌停数：{cant_down},<br>' \
-                  '昨日涨停今日受益：{uptodown} <br>' \
+                  '昨日涨停今日受益：{up_to_down} <br>' \
                   '大盘评级：{level}， <br>' \
                   ' <br>' \
                   '建议：{warn}， <br>' \
@@ -53,7 +53,7 @@ if __name__ == '__main__':
                             cant_down = master.get('cant_down'),
                              warn= warn(master.get('level')),
                             level = master.get('level'),
-                            uptodown = master.get('uptodown'),
+                            up_to_down = master.get('up_to_down'),
                             suggest = suggest(master.get('ratio')),
                             upcant = listrostring(up_item)
                             )

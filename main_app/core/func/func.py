@@ -24,6 +24,7 @@ def get(url,data = None,header = None):
         response = s.get(url,headers=header,params=params)
     return response
 
+
 def post(url,data = None,header = None):
     """
     :param url: URL
@@ -63,7 +64,7 @@ def updown():
         "跌停"
         level = r.get('dppj_data')
         "大盘评级"
-        uptodown =r.get('jrbx_data').get('last_zdf')
+        up_to_down =r.get('jrbx_data').get('last_zdf')
         "昨日涨停今日受益"
         updown = round(up/down,3)
         "涨跌比"
@@ -73,7 +74,7 @@ def updown():
         ratio['cant_up'] = cant_up
         ratio['cant_down'] = cant_down
         ratio['level'] = level
-        ratio['uptodown'] = uptodown
+        ratio['up_to_down'] = up_to_down
     except Exception as e:
         print(e)
     return ratio

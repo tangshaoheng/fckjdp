@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='CapitalflyBig',
+            name='CapitalFlyBig',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('create_time', models.DateTimeField(auto_now_add=True, verbose_name='创建时间')),
@@ -21,26 +21,26 @@ class Migration(migrations.Migration):
                 ('code', models.CharField(blank=True, max_length=45, null=True, verbose_name='代码')),
             ],
             options={
-                'verbose_name': 'CapitalflyBig',
-                'verbose_name_plural': 'CapitalflyBig',
+                'verbose_name': 'CapitalFlyBig',
+                'verbose_name_plural': 'CapitalFlyBig',
                 'ordering': ['-create_time'],
             },
         ),
         migrations.AlterModelOptions(
-            name='capitalfly1000',
-            options={'ordering': ['-create_time'], 'verbose_name': 'Capitalfly1000', 'verbose_name_plural': 'Capitalfly1000'},
+            name='CapitalFly1000',
+            options={'ordering': ['-create_time'], 'verbose_name': 'CapitalFly1000', 'verbose_name_plural': 'CapitalFly1000'},
         ),
         migrations.RemoveField(
-            model_name='capitalfly1000',
+            model_name='CapitalFly1000',
             name='topic',
         ),
         migrations.AddField(
-            model_name='capitalfly1000',
+            model_name='CapitalFly1000',
             name='code',
             field=models.CharField(blank=True, max_length=45, null=True, verbose_name='代码'),
         ),
         migrations.AddField(
-            model_name='capitalfly1000',
+            model_name='CapitalFly1000',
             name='name',
             field=models.CharField(blank=True, max_length=45, null=True, verbose_name='名字'),
         ),

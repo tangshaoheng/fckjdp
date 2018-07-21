@@ -76,7 +76,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Capitalfly1000',
+            name='CapitalFly1000',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('create_time', models.DateTimeField(auto_now_add=True, verbose_name='创建时间')),
@@ -99,7 +99,7 @@ class Migration(migrations.Migration):
                 ('zdf_1a0001', models.CharField(blank=True, max_length=10, null=True, verbose_name='上证指涨跌幅')),
                 ('sh399001', models.CharField(blank=True, max_length=10, null=True, verbose_name='深圳指')),
                 ('zdf_399001', models.CharField(blank=True, max_length=10, null=True, verbose_name='深圳指涨跌幅')),
-                ('uptodown', models.CharField(blank=True, max_length=10, null=True, verbose_name='昨日涨停今日受益')),
+                ('up_to_down', models.CharField(blank=True, max_length=10, null=True, verbose_name='昨日涨停今日受益')),
                 ('ratio', models.CharField(blank=True, max_length=10, null=True, verbose_name='涨跌比')),
                 ('level', models.CharField(blank=True, max_length=10, null=True, verbose_name='大盘评级')),
                 ('up', models.CharField(blank=True, max_length=10, null=True, verbose_name='上涨数')),

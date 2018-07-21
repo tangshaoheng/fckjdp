@@ -12,17 +12,17 @@ class TodayReport(BaseModel):
         大盘总参
     """
 
-    sz1A0001 = models.CharField(max_length=10, verbose_name=u'上证指',null=True,blank=True)
-    zdf_1a0001 = models.CharField(max_length=10, verbose_name=u'上证指涨跌幅',null=True,blank=True)
-    sh399001 = models.CharField(max_length=10, verbose_name=u'深圳指',null=True,blank=True)
-    zdf_399001 = models.CharField(max_length=10, verbose_name=u'深圳指涨跌幅',null=True,blank=True)
-    uptodown = models.CharField(max_length=10, verbose_name=u'昨日涨停今日受益',null=True,blank=True)
-    ratio = models.CharField(max_length=10, verbose_name=u'涨跌比',null=True,blank=True)
-    level = models.CharField(max_length=10, verbose_name=u'大盘评级',null=True,blank=True)
-    up = models.CharField(max_length=10, verbose_name=u'上涨数',null=True,blank=True)
-    down = models.CharField(max_length=10, verbose_name=u'下跌数',null=True,blank=True)
-    cant_up = models.CharField(max_length=10, verbose_name=u'涨停数',null=True,blank=True)
-    cant_down = models.CharField(max_length=10, verbose_name=u'跌停数',null=True,blank=True)
+    sz1A0001 = models.CharField(max_length=10, verbose_name=u'上证指', null=True, blank=True)
+    zdf_1a0001 = models.CharField(max_length=10, verbose_name=u'上证指涨跌幅', null=True, blank=True)
+    sh399001 = models.CharField(max_length=10, verbose_name=u'深圳指', null=True, blank=True)
+    zdf_399001 = models.CharField(max_length=10, verbose_name=u'深圳指涨跌幅', null=True, blank=True)
+    up_to_down = models.CharField(max_length=10, verbose_name=u'昨日涨停今日受益', null=True, blank=True)
+    ratio = models.CharField(max_length=10, verbose_name=u'涨跌比', null=True, blank=True)
+    level = models.CharField(max_length=10, verbose_name=u'大盘评级', null=True, blank=True)
+    up = models.CharField(max_length=10, verbose_name=u'上涨数', null=True, blank=True)
+    down = models.CharField(max_length=10, verbose_name=u'下跌数', null=True, blank=True)
+    cant_up = models.CharField(max_length=10, verbose_name=u'涨停数', null=True, blank=True)
+    cant_down = models.CharField(max_length=10, verbose_name=u'跌停数', null=True, blank=True)
 
     class Meta:
         verbose_name = 'TodayReport'
@@ -30,7 +30,8 @@ class TodayReport(BaseModel):
         ordering = ['-create_time']
 
     def save(self, * args, ** kwargs):
-        if len(self.__class__.objects.filter(create_time__year = now.year, create_time__month=now.month, create_time__day=now.day))>=1:
+        if len(self.__class__.objects.
+                filter(create_time__year=now.year, create_time__month=now.month, create_time__day=now.day)) >= 1:
             raise Exception(u'多次插入')
         super(self.__class__, self).save(*args, ** kwargs)
 
@@ -43,8 +44,8 @@ class CantUpToDay(BaseModel):
     当日涨停以及涨停过的票
     """
 
-    name = models.CharField(max_length=45, verbose_name=u'名字',null=True,blank=True)
-    code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
+    name = models.CharField(max_length=45, verbose_name=u'名字', null=True, blank=True)
+    code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
         verbose_name = 'CantUpToDay'
@@ -122,7 +123,7 @@ class Topic(BaseModel):
         return self.topic
 
 
-class Capitalfly1000(BaseModel):
+class CapitalFly1000(BaseModel):
     """
     资金流大于1000w
     """
@@ -131,15 +132,15 @@ class Capitalfly1000(BaseModel):
     code = models.CharField(max_length=45, verbose_name=u'代码',null=True,blank=True)
 
     class Meta:
-        verbose_name = 'Capitalfly1000'
-        verbose_name_plural = 'Capitalfly1000'
+        verbose_name = 'CapitalFly1000'
+        verbose_name_plural = 'CapitalFly1000'
         ordering = ['-create_time']
 
     def __unicode__(self):
         return self.name
 
 
-class CapitalflyBig(BaseModel):
+class CapitalFlyBig(BaseModel):
     """
     资金流大于1亿
     """
@@ -148,8 +149,8 @@ class CapitalflyBig(BaseModel):
     code = models.CharField(max_length=45, verbose_name=u'代码', null=True, blank=True)
 
     class Meta:
-        verbose_name = 'CapitalflyBig'
-        verbose_name_plural = 'CapitalflyBig'
+        verbose_name = 'CapitalFlyBig'
+        verbose_name_plural = 'CapitalFlyBig'
         ordering = ['-create_time']
 
     def __unicode__(self):
