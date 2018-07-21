@@ -42,7 +42,12 @@ def post(url,data = None,header = None):
 
 
 def updown():
-    "大盘总参：如果不是交易时间，则为前一个收盘数据，如果是交易时间，则为当下数据"
+
+    '''
+    大盘总参：如果不是交易时间，则为前一个收盘数据，如果是交易时间，则为当下数据
+    :return:
+    '''
+
     ratio = {}
     api = tonghuashun_api
     try:
@@ -146,7 +151,7 @@ def capital_flow():
 def cant_down_item():
 
     '''
-    当日跌停
+    当日跌停的票
     :return:
     '''
 
@@ -168,7 +173,7 @@ def cant_down_item():
 
 def cant_up_item():
     '''
-    当日涨停
+    当日涨停的票
     :return:
     '''
 
@@ -215,25 +220,35 @@ def buyday():
         return 0
 
 
-def warn(r):
+def warn(num):
+    '''
+    建议
+    :param r:
+    :return:
+    '''
     u = u''
-    if r<2.5:
+    if num < 2.5:
         u = u"大盘风险极大，请勿参与"
-    elif 2.5<=r and r <4 :
+    elif 2.5 <= num and num <4 :
         u = u'大盘风险较大，请谨慎参与'
-    elif 4<=r and r< 6:
+    elif 4 <= num and num < 6:
         u = u'大盘震荡，适当参与'
-    elif 6<=r and r<8:
+    elif 6<=num and num <8:
         u = u'大盘走势良好，积极参与'
     else:
         u = u'大盘走势极好，积极参与'
     return  u
 
-def suggest(r):
-    if r >=1:
-        return u'涨跌比：%s 涨跌比大于1，可以开仓' %r
+def suggest(num):
+    '''
+    涨跌比
+    :param r:
+    :return:
+    '''
+    if num >=1:
+        return u'涨跌比：%s 涨跌比大于1，可以开仓' %num
     else:
-        return u'涨跌比：%s 建议空仓' %r
+        return u'涨跌比：%s 建议空仓' %num
 
 if __name__ == '__main__':
     updown()
