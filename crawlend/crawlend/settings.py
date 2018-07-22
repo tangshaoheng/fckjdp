@@ -73,7 +73,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
    'crawlend.pipelines.SharesPipeline': 1,
    # 'crawlend.pipelines.MySQLStoreYybPipeline': 2,
-   # 'crawlend.pipelines.CrawlendPipeline': 3
+   'crawlend.pipelines.CrawlendPipeline': 3
 }
 
 # start MySQL database configure setting
