@@ -22,3 +22,12 @@ eg:up_to_down
 
 3,方法参数的逗号后面要有空格间隔,方法参数里面的=两边不能出现空格
 eg:up_to_down = models.CharField(max_length=10, verbose_name=u'昨日涨停今日受益', null=True, blank=True)
+
+4,爬虫部分：
+
+scrapy shell (需要爬取的地址XXX)
+
+爬取数据到item.json
+
+scrapy crawl gjzq_crawl -o items.json 
+
